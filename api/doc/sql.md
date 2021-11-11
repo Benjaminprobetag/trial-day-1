@@ -64,7 +64,7 @@ FROM     organizations,
 WHERE    organizations.id = orders.organization_id
 AND      Extract(year FROM orders.created_at) = 2021
 GROUP BY organizations.NAME
-HAVING   Count(orders.organization_id) > 70 ;
+HAVING   Count(orders.organization_id) > 69 ;
 ---
 
 Add your queries to this document and create a pull request at the end to complete your work.
