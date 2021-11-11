@@ -34,6 +34,16 @@ Write a query to:
     | ------------ | ---- | ----- |
     | Testhotel Post | 2021 | 123 |
     | ... | ... | ... |
+    
+    SELECT Sum(orders.amount_to_pay),
+       organizations.NAME as "Organization Name",
+       Extract(year FROM orders.created_at) as "Year"
+FROM   organizations,
+       orders
+WHERE  organizations.id = orders.organization_id
+GROUP  BY organizations.NAME,
+          Extract(year FROM orders.created_at)
+ORDER BY 2, 3; 
 ---
 
 - Get all organizations with at least 70 orders in the current year
